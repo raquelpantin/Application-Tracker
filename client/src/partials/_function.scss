@@ -1,0 +1,5 @@
+//function to convert PX to REM
+@function toRem($px) {
+  $remValue: calc($px/16) + rem;
+  @return $remValue;
+}

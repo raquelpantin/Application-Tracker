@@ -1,0 +1,10 @@
+@use "../../App.scss" as *;
+@use "../../partials/function.scss" as *;
+@use "../../partials/reset.scss" as *;
+
+.header-title {
+  font-size: toRem(28);
+  text-align: center;
+  margin-top: toRem(12);
+  margin-bottom: toRem(32);
+}

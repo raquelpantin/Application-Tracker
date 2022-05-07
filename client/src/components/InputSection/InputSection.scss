@@ -1,0 +1,43 @@
+@use "../../App.scss" as *;
+@use "../../partials/function.scss" as *;
+@use "../../partials/reset.scss" as *;
+
+.input {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    & input {
+      font-size: toRem(14);
+      padding: toRem(4) toRem(8);
+    }
+
+    & label {
+      font-size: toRem(16);
+      padding-bottom: toRem(6);
+      margin-top: toRem(12);
+    }
+
+    & textarea {
+      resize: none;
+      height: toRem(80);
+      width: toRem(168);
+      font-size: toRem(14);
+      padding: toRem(4) toRem(8);
+    }
+
+    & button {
+      font-size: toRem(14);
+      width: toRem(60);
+      padding: toRem(3) toRem(0);
+      margin-top: toRem(12);
+    }
+  }
+
+  &-date {
+    width: toRem(170);
+  }
+}
