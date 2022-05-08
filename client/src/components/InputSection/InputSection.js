@@ -44,6 +44,14 @@ const InputSection = () => {
         ]);
       })
       .catch((err) => console.log(err));
+
+    setCompany("");
+    setPosition("");
+    setJobID("");
+    setLink("");
+    setDate("");
+    setLocation("");
+    setNotes("");
   };
 
   const getApps = () => {
@@ -140,9 +148,11 @@ const InputSection = () => {
                   <div className="input-postit" key={apps.id}>
                     <h2>{apps.company}</h2>
                     <p>
-                      {apps.position} (ID: {apps.jobID})
+                      {apps.position} <br></br>(ID: {apps.jobID})
                     </p>
-                    <p>{apps.link}</p>
+                    <a className="input-link" href={apps.link}>
+                      {apps.link}
+                    </a>
                     <p>
                       {new Date(apps.date)
                         .toISOString()
@@ -151,6 +161,7 @@ const InputSection = () => {
                         .reverse()
                         .join("-")}
                     </p>
+                    <p>{apps.location}</p>
                     <p>{apps.notes}</p>
                     {/* <button>Edit</button>
                   <button>Delete</button> */}
