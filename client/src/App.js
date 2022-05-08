@@ -4,9 +4,11 @@ import InputSection from "./components/InputSection/InputSection";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <PageHeader />
-      <InputSection />
+      <div className="app-container">
+        <InputSection />
+      </div>
     </div>
   );
 }
