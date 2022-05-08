@@ -1,7 +1,12 @@
-// @use "./styles/partials/_variables.scss" as *;
-// @use "./styles/partials/_fonts.scss" as *;
+@use "./partials/_variables.scss" as *;
+@use "./partials/_fonts.scss" as *;
 // @use "./styles/partials/_mixins.scss" as *;
 // @use "./styles/partials/_colors.scss" as *;
 @use "./partials/_reset.scss" as *;
 
 @use "./partials/_function.scss" as *;
+
+body {
+  font-family: $main;
+  font-weight: $regular;
+}

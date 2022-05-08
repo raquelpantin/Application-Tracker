@@ -66,7 +66,7 @@ const InputSection = () => {
   };
 
   return (
-    <div>
+    <div className="input-all">
       <form onSubmit={addApp} className="input-container">
         <label>Company</label>
         <input
@@ -119,34 +119,46 @@ const InputSection = () => {
         ></textarea>
         <button type="submit">Add</button>
       </form>
-      <div>
-        {!showList ? (
-          <button onClick={getApps}>Show Applications</button>
-        ) : (
-          <button onClick={hideApps}>Hide Applications</button>
-        )}
-        {showList
-          ? appList.map((apps) => {
-              return (
-                <div key={apps.id}>
-                  <h2>{apps.company}</h2>
-                  <p>
-                    {apps.position} (ID: {apps.jobID})
-                  </p>
-                  <p>{apps.link}</p>
-                  <p>
-                    {new Date(apps.date)
-                      .toISOString()
-                      .split("T")[0]
-                      .split("-")
-                      .reverse()
-                      .join("-")}
-                  </p>
-                  <p>{apps.notes}</p>
-                </div>
-              );
-            })
-          : null}
+
+      <div className="input-applications">
+        <div className="input-buttons">
+          {!showList ? (
+            <button className="input-hideshowbtn" onClick={getApps}>
+              Show Applications
+            </button>
+          ) : (
+            <button className="input-hideshowbtn" onClick={hideApps}>
+              Hide Applications
+            </button>
+          )}
+          <p className="input-count">Total Applications: {appList.length}</p>
+        </div>
+        <div className="input-results">
+          {showList
+            ? appList.map((apps) => {
+                return (
+                  <div className="input-postit" key={apps.id}>
+                    <h2>{apps.company}</h2>
+                    <p>
+                      {apps.position} (ID: {apps.jobID})
+                    </p>
+                    <p>{apps.link}</p>
+                    <p>
+                      {new Date(apps.date)
+                        .toISOString()
+                        .split("T")[0]
+                        .split("-")
+                        .reverse()
+                        .join("-")}
+                    </p>
+                    <p>{apps.notes}</p>
+                    {/* <button>Edit</button>
+                  <button>Delete</button> */}
+                  </div>
+                );
+              })
+            : null}
+        </div>
       </div>
     </div>
   );

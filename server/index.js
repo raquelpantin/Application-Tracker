@@ -46,6 +46,24 @@ app.get("/applications", (req, res) => {
   });
 });
 
+app.put("/update", (req, res) => {
+  const id = req.body.id;
+  const notes = req.body.notes;
+  db.query(
+    "UPDATE SET applications notes = ? WHERE id = ?",
+    [notes, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+// app.delete()
+
 app.listen(7070, () => {
   console.log("Server listening on port 7070");
 });

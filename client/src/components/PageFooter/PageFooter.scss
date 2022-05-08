@@ -1,0 +1,38 @@
+@use "../../App.scss" as *;
+@use "../../partials/function.scss" as *;
+@use "../../partials/reset.scss" as *;
+@use "../../partials/fonts.scss" as *;
+@use "../../partials/variables.scss" as *;
+
+.footer {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    padding: toRem(18) toRem(0);
+    margin-top: toRem(16);
+    color: #0a0a0a;
+  }
+
+  &-name {
+    font-size: toRem(18);
+  }
+
+  &-year {
+    font-size: toRem(13);
+    font-weight: bold;
+  }
+
+  &-link {
+    font-size: toRem(15);
+    text-decoration: none;
+    cursor: pointer;
+    color: #0a0a0a;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
