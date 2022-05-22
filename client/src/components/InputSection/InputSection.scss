@@ -9,6 +9,7 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    padding-top: toRem(70);
   }
 
   &-applications {
@@ -59,19 +60,18 @@
       transform: scale(1.25);
       position: relative;
       z-index: 5;
-      cursor: pointer;
     }
     &:focus {
       box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
       transform: scale(1.25);
       position: relative;
       z-index: 5;
-      cursor: pointer;
     }
   }
   &-container {
     display: flex;
     width: 30%;
+    height: toRem(600);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -169,5 +169,48 @@
     color: #0a0a0a;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  &-btncontainer {
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0.1rem;
+    right: 0.3rem;
+  }
+
+  &-edit {
+    width: toRem(25);
+
+    &:hover {
+      border: 1px solid #5aab61;
+      border-radius: 50%;
+      padding: 1px;
+      cursor: pointer;
+    }
+  }
+
+  &-delete {
+    width: toRem(23);
+    margin-left: toRem(16);
+
+    &:hover {
+      border: 1px solid red;
+      border-radius: 50%;
+      padding: 1px;
+      cursor: pointer;
+    }
+  }
+
+  &-dateresult {
+    position: absolute;
+    top: 0;
+    left: 7rem;
+    font-size: toRem(15);
+  }
+
+  &-title {
+    font-weight: bold;
+    padding-top: 0.5rem;
   }
 }

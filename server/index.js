@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
-const { reset } = require("nodemon");
 const cors = require("cors");
 
 app.use(cors());
@@ -26,7 +25,7 @@ app.post("/add", (req, res) => {
   db.query(
     "INSERT INTO applications (company, position, jobID, link, date, location, notes) VALUES (?,?,?,?,?,?,?)",
     [company, position, jobID, link, date, location, notes],
-    (err, res) => {
+    (err, result) => {
       if (err) {
         console.log(err);
       } else {
@@ -50,7 +49,7 @@ app.put("/update", (req, res) => {
   const id = req.body.id;
   const notes = req.body.notes;
   db.query(
-    "UPDATE SET applications notes = ? WHERE id = ?",
+    "UPDATE applications SET notes = ? WHERE id = ?",
     [notes, id],
     (err, result) => {
       if (err) {
@@ -63,6 +62,9 @@ app.put("/update", (req, res) => {
 });
 
 // app.delete()
+// app.delete("/delte", (req, res) => {
+
+// })
 
 app.listen(7070, () => {
   console.log("Server listening on port 7070");

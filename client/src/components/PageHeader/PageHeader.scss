@@ -10,6 +10,9 @@
   padding-top: toRem(12);
   padding-bottom: toRem(12);
   background-color: aliceblue;
+  position: fixed;
+  width: 100%;
+  z-index: 99999999;
 }
 
 .header-title {

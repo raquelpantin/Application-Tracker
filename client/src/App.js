@@ -7,9 +7,7 @@ function App() {
   return (
     <div>
       <PageHeader />
-      <div className="app-container">
-        <InputSection />
-      </div>
+      <InputSection />
       <PageFooter />
     </div>
   );

@@ -2,6 +2,10 @@ import "./InputSection.scss";
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
+import editIcon from "../../assets/icons8-pencil-80.png";
+import deleteIcon from "../../assets/icons8-delete-99.png";
+import EditModal from "../EditModal/EditModal";
+import DeleteModal from "../DeleteModal/DeleteModal";
 
 const InputSection = () => {
   const [company, setCompany] = useState("");
@@ -15,6 +19,9 @@ const InputSection = () => {
   const [appList, setAppList] = useState([]);
 
   const [showList, setShowList] = useState(false);
+
+  const [openEditModal, setEditModal] = useState(false);
+  const [openDeleteModal, setDeleteModal] = useState(false);
 
   const addApp = (e) => {
     e.preventDefault();
@@ -90,13 +97,13 @@ const InputSection = () => {
           onChange={(e) => setPosition(e.target.value)}
           name="position"
         ></input>
-        <label>Job ID</label>
+        {/* <label>Job ID</label>
         <input
           type="text"
           value={jobID}
           onChange={(e) => setJobID(e.target.value)}
           name="jobID"
-        ></input>
+        ></input> */}
         <label>Job Link</label>
         <input
           type="text"
@@ -146,14 +153,8 @@ const InputSection = () => {
             ? appList.map((apps) => {
                 return (
                   <div className="input-postit" key={apps.id}>
-                    <h2>{apps.company}</h2>
-                    <p>
-                      {apps.position} <br></br>(ID: {apps.jobID})
-                    </p>
-                    <a className="input-link" href={apps.link}>
-                      {apps.link}
-                    </a>
-                    <p>
+                    <h2 className="input-title">{apps.company}</h2>
+                    <p className="input-dateresult">
                       {new Date(apps.date)
                         .toISOString()
                         .split("T")[0]
@@ -161,16 +162,36 @@ const InputSection = () => {
                         .reverse()
                         .join("-")}
                     </p>
+                    <p>{apps.position}</p>
+                    <a className="input-link" href={apps.link}>
+                      {apps.link}
+                    </a>
                     <p>{apps.location}</p>
                     <p>{apps.notes}</p>
-                    {/* <button>Edit</button>
-                  <button>Delete</button> */}
+                    <div className="input-btncontainer">
+                      <img
+                        onClick={() => {
+                          setEditModal(true);
+                        }}
+                        className="input-edit"
+                        src={editIcon}
+                      />
+                      <img
+                        onClick={() => {
+                          setDeleteModal(true);
+                        }}
+                        className="input-delete"
+                        src={deleteIcon}
+                      />
+                    </div>
                   </div>
                 );
               })
             : null}
         </div>
       </div>
+      {openEditModal && <EditModal cancelModal={setEditModal} apps={appList} />}
+      {openDeleteModal && <DeleteModal deleteModal={setDeleteModal} />}
     </div>
   );
 };
